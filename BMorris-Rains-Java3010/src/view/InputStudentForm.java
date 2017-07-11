@@ -1,15 +1,21 @@
-
-            
-       /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package view;
+
 import data.DataContainer;
 import java.util.ArrayList;
 import backend.Student;
 import backend.StudentCourse;
+import exceptionHandling.InvalidDataException;
+import exceptionHandling.NoDataException;
+import exceptionHandling.errorBox;
+import static java.awt.SystemColor.text;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
 import javax.swing.JTextArea;
 
 /**
@@ -19,15 +25,17 @@ import javax.swing.JTextArea;
 public class InputStudentForm extends javax.swing.JFrame {
 
     ArrayList<Student> listOfStudents;
+
     /**
      * Creates new form InputStudentForm
+     *
      * @param data
      */
     public InputStudentForm(DataContainer data) {
         initComponents();
-        
+
         this.listOfStudents = data.getListOfStudents();
-        
+
     }
 
     /**
@@ -71,7 +79,7 @@ public class InputStudentForm extends javax.swing.JFrame {
 
         jLabel5.setText("Date of Birth:");
 
-        jLabel6.setText("Current GPA:");
+        jLabel6.setText("Current GPA (required):");
 
         jLabel7.setText("Date of Graduation:");
 
@@ -121,15 +129,19 @@ public class InputStudentForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel6)))
                         .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(addressField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ssnField, javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,48 +219,79 @@ public class InputStudentForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFieldActionPerformed
 
-    
+
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-        
+  
         Student aStudent = new Student();
-       
-        String name = this.nameField.getText(); 
-        String address = this.addressField.getText(); 
-        String ssn = this.ssnField.getText(); 
-        String dateOfBirth = dobField.getText();
+
+        String name = this.nameField.getText();
+        String address = this.addressField.getText();
+        String ssn = this.ssnField.getText();
+        String dateOfBirth = this.dobField.getText();
         double gpa = Double.parseDouble(gpaField.getText());
         String graduation = this.graduationField.getText();
         JTextArea iCourses = this.enrolledCourses;
+
+        try {
+            
+            aStudent.setName(name);
+                if (name.length() == 0) {
+                    throw new NoDataException("Missing name!");
+                }
+            
+            aStudent.setSocialSecurityNumber(ssn);    
+                if (ssn.length() != 9) {
+                    throw new InvalidDataException("SSN must be nine numbers long!");
+                } 
+                
+            aStudent.setSocialSecurityNumber(ssn);  
+                for (int i = 0; i < ssn.length(); i++) {
+                    if (Character.isLetter(ssn.charAt(i)))
+                        throw new InvalidDataException("Must be numbers only!");
+                }
+                
+            aStudent.setCurrentGPA(gpa); 
+                if (Double.toString(gpa).length() == 0) {
+                    throw new NoDataException("GPA is required!"); 
+                }
+        
+        
        
+
         
-        aStudent.setName(name);
-        aStudent.setAddress(address);
-        aStudent.setCurrentGPA(gpa);
-        aStudent.setDateOfGraduation(graduation);
-        aStudent.setDateOfBirth(dateOfBirth);
-        aStudent.setSocialSecurityNumber(ssn);
-        
-        // convert the text area to an array list of student courses
-        // assume the text area is a list of course ids separated by commas
-        // and split the text on the comma
-        aStudent.setDateOfGraduation(graduation);
-        String listOfCourses = iCourses.getText();
-        String[] listOfCourseIds = listOfCourses.split(",");
-        for (String courseId : listOfCourseIds) {
-            StudentCourse acourse = new StudentCourse(courseId);   
-            aStudent.getEnrolledCourses().add(acourse);
-        }
-        
-        
-       
-        
-        
- 
-        
+         
+            aStudent.setAddress(address);
+         
+            aStudent.setDateOfGraduation(graduation);
+            aStudent.setDateOfBirth(dateOfBirth);
+            
+
+            // convert the text area to an array list of student courses
+            // assume the text area is a list of course ids separated by commas
+            // and split the text on the comma
+            aStudent.setDateOfGraduation(graduation);
+            String listOfCourses = iCourses.getText();
+            String[] listOfCourseIds = listOfCourses.split(",");
+            for (String courseId : listOfCourseIds) {
+                StudentCourse acourse = new StudentCourse(courseId);
+                aStudent.getEnrolledCourses().add(acourse);
+            }
+
+            
+                     
         this.listOfStudents.add(aStudent);
         
+         } catch (NoDataException | InvalidDataException error)
+        {
+            errorBox errorBox = new errorBox(error.getMessage());
+            errorBox.setVisible(true);
+
+        } 
         
+
+        
+
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -258,18 +301,20 @@ public class InputStudentForm extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
-        
-        this.enrolledCourses.setText(""); 
+
+        this.enrolledCourses.setText("");
         this.addressField.setText("");
         this.dobField.setText("");
         this.gpaField.setText("");
         this.graduationField.setText("");
         this.ssnField.setText("");
         this.nameField.setText("");
-        
-        
+
+
     }//GEN-LAST:event_clearButtonActionPerformed
 
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;
