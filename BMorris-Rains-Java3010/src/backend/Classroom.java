@@ -50,7 +50,7 @@ public class Classroom implements IClassroom {
 
     @Override
     public String toString() {
-        return "Classroom{" + "roomNumber=" + roomNumber + ", typeOfRoom=" + typeOfRoom + '}';
+        return "Room Number: " + roomNumber + ", Room Type: " + typeOfRoom + '}';
     }   
 
 }

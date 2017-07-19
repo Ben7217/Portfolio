@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package backend;
-import backend.Person;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -68,9 +68,11 @@ public class Faculty extends Person {
         this.listOfCourses = listOfCourses;
     }
 
+    // dateOfHire and dateOfTermination do not currently work or save. Removed
+    // from the return statement on toString in order to write to .txt file. 
     @Override
     public String toString() {
-        return "Faculty{" + "dateOfHire=" + dateOfHire.getTime() + ", dateOfTermination=" + dateOfTermination.getTime() + ", status=" + status + ", salary=" + salary + ", listOfCourses=" + listOfCourses + '}';
+        return super.toString() + "Employee Status: " + status + ", Salary: " + salary + ", List Of Courses: " + listOfCourses;
     }
 
   

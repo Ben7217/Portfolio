@@ -12,6 +12,7 @@ public class InputClassroomForm extends javax.swing.JFrame {
 
     /**
      * Creates new form ClassRoomInputWindow
+     * @param data
      */
     public InputClassroomForm(DataContainer data) {
 
@@ -49,7 +50,7 @@ public class InputClassroomForm extends javax.swing.JFrame {
 
         roomtypelabel.setText("Room Type:");
 
-        typeOfRoomListField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Lab", "Classroom", "Lecture Hall", "" }));
+        typeOfRoomListField.setModel(new javax.swing.DefaultComboBoxModel(RoomType.values()));
 
         savebutton.setText("Save");
         savebutton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +141,7 @@ public class InputClassroomForm extends javax.swing.JFrame {
             // Step 2 - Retrieve the selected item
             Object selectedItem = datamodel.getSelectedItem();
             // Step 3 - Convert (Cast) the selected item to a RoomType object
-            RoomType roomType = (RoomType) selectedItem;
+             RoomType roomType = (RoomType) selectedItem;
             // Step 4 - Use the Classroom setters to set the values
             aClassroom.setRoomNumber(room);
             aClassroom.setTypeOfRoom(roomType);

@@ -1,0 +1,93 @@
+/* myStyle.css */
+body {
+ background-color: #FFFFFF;
+ color: #FFFFFF;
+ background-image: url("wood.jpg");
+
+}
+h1 {
+ color: #000000;
+ text-align: center;
+ font: 300% Impact;
+ background-color: #FFFFFF;
+ display: block;
+ margin: auto;
+}
+
+h2 {
+
+  color: #000000;
+  text-align: center;
+  font: 200% Impact;
+  background-color: #FFFFFF;
+
+
+
+}
+
+h4 {
+  color: #FFFFFF;
+  text-align: center;
+  font: 200% Impact;
+}
+p {
+ background-color: #FFFFFF ;
+ color: #333300;
+ text-align: left;
+ border: 3px groove #000000;
+ font: 100% Arial;
+}
+
+p2 {
+ background-color: #FFFFFF;
+ color: #333300;
+ text-align: left;
+ border: 3px groove #000000;
+}
+
+img {
+    display: block;
+    margin: auto;
+    width: 30%;
+    height: 30%;
+    border: 3px groove #000000;
+}
+
+div {
+   margin: auto;
+   width: 9
+  0%;
+   border: 3px;
+   padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+figcaption {
+  text-align: center;
+  font: Arial;
+}
+table {
+  
+}

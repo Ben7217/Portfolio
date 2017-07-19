@@ -6,8 +6,8 @@ public class TopLevelMenu extends javax.swing.JFrame {
 
     // This is the data model that will get passed to all forms. 
     DataContainer datamodel = new DataContainer();
-    
-     /**
+
+    /**
      * Constructor
      */
     public TopLevelMenu() {
@@ -25,6 +25,7 @@ public class TopLevelMenu extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        saveButton = new javax.swing.JMenuItem();
         exitProgramButton = new javax.swing.JMenuItem();
         classroommenu = new javax.swing.JMenu();
         addClassroom = new javax.swing.JMenuItem();
@@ -41,7 +42,15 @@ public class TopLevelMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu2.setText("Exit");
+        jMenu2.setText("File");
+
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(saveButton);
 
         exitProgramButton.setText("Exit Program");
         exitProgramButton.addActionListener(new java.awt.event.ActionListener() {
@@ -150,30 +159,30 @@ public class TopLevelMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void listclassroomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listclassroomsActionPerformed
-        ClassroomReportForm listClassroomForm = new ClassroomReportForm(datamodel);        
-        listClassroomForm.setSize(800,300);
-        listClassroomForm.setVisible(true);      
+        ClassroomReportForm listClassroomForm = new ClassroomReportForm(datamodel);
+        listClassroomForm.setSize(800, 300);
+        listClassroomForm.setVisible(true);
     }//GEN-LAST:event_listclassroomsActionPerformed
 
     private void addClassroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassroomActionPerformed
         InputClassroomForm addClassroomForm = new InputClassroomForm(datamodel);
-        addClassroomForm.setSize(500,250);
+        addClassroomForm.setSize(500, 250);
         addClassroomForm.setVisible(true);
     }//GEN-LAST:event_addClassroomActionPerformed
 
     private void addStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStudentActionPerformed
         // TODO add your handling code here:
         InputStudentForm addStudentForm = new InputStudentForm(datamodel);
-        addStudentForm.setSize(700,550);
+        addStudentForm.setSize(700, 550);
         addStudentForm.setVisible(true);
     }//GEN-LAST:event_addStudentActionPerformed
 
     private void listStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listStudentsActionPerformed
         // TODO add your handling code here:
-        
-        StudentReportForm listStudentForm = new StudentReportForm(datamodel);        
-        listStudentForm.setSize(710,500);
-        listStudentForm.setVisible(true); 
+
+        StudentReportForm listStudentForm = new StudentReportForm(datamodel);
+        listStudentForm.setSize(710, 500);
+        listStudentForm.setVisible(true);
     }//GEN-LAST:event_listStudentsActionPerformed
 
     private void exitProgramButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitProgramButtonActionPerformed
@@ -184,33 +193,43 @@ public class TopLevelMenu extends javax.swing.JFrame {
     private void addFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFacultyActionPerformed
         // TODO add your handling code here:
         InputFacultyForm addFacultyForm = new InputFacultyForm(datamodel);
-        addFacultyForm.setSize(700,800);
+        addFacultyForm.setSize(700, 800);
         addFacultyForm.setVisible(true);
     }//GEN-LAST:event_addFacultyActionPerformed
 
     private void listFacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listFacultyActionPerformed
         // TODO add your handling code here:
-        
-        FacultyReportForm listFacultyForm = new FacultyReportForm(datamodel);        
-        listFacultyForm.setSize(710,500);
-        listFacultyForm.setVisible(true); 
+
+        FacultyReportForm listFacultyForm = new FacultyReportForm(datamodel);
+        listFacultyForm.setSize(710, 500);
+        listFacultyForm.setVisible(true);
     }//GEN-LAST:event_listFacultyActionPerformed
 
     private void addCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCourseActionPerformed
         // TODO add your handling code here:
-        
+
         InputCourseForm addCourseForm = new InputCourseForm(datamodel);
-        addCourseForm.setSize(700,400);
+        addCourseForm.setSize(700, 400);
         addCourseForm.setVisible(true);
     }//GEN-LAST:event_addCourseActionPerformed
 
     private void listCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listCourseActionPerformed
         // TODO add your handling code here:
-        OfferedCourseReportForm listCourseForm = new OfferedCourseReportForm(datamodel);        
-        listCourseForm.setSize(710,500);
-        listCourseForm.setVisible(true); 
+        OfferedCourseReportForm listCourseForm = new OfferedCourseReportForm(datamodel);
+        listCourseForm.setSize(710, 500);
+        listCourseForm.setVisible(true);
     }//GEN-LAST:event_listCourseActionPerformed
-   
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+        String menuItemClicked = evt.getActionCommand();
+        if (!menuItemClicked.equals("Save")) {
+        } else {
+            //datamodel.writeSerializedFile();
+            datamodel.writeTextFile();
+            //datamodel.writeXML();
+    }//GEN-LAST:event_saveButtonActionPerformed
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addClassroom;
     private javax.swing.JMenuItem addCourse;
@@ -226,11 +245,12 @@ public class TopLevelMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem listFaculty;
     private javax.swing.JMenuItem listStudents;
     private javax.swing.JMenuItem listclassrooms;
+    private javax.swing.JMenuItem saveButton;
     private javax.swing.JMenu studentmenu;
     // End of variables declaration//GEN-END:variables
 
-public static void main(String[] args){
-    TopLevelMenu topmenu = new TopLevelMenu();
-    topmenu.setVisible(true);
-}
+    public static void main(String[] args) {
+        TopLevelMenu topmenu = new TopLevelMenu();
+        topmenu.setVisible(true);
+    }
 }

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Magazine Subscription Form:</title>
+  </head>
+
+<body>
+
+  <h1>UMass Magazine Subscription Form:</h1>
+
+  <!---User Input------------------------------------------------->
+<form name = "donationForm" id="donationForm" action="http://webdevfoundations.net/scripts/formdemo.asp" method="post">
+
+  <table border="1">
+    <tr>
+      <th align = "left">First Name:</th><td><INPUT TYPE="text"NAME="FirstName" SIZE = "40"></td>
+      </th>
+    </tr>
+
+    <tr>
+      <th align = "left">Last Name:</th><td><INPUT TYPE="text" NAME="LastName" SIZE = "40"></td>
+      </th>
+    </tr>
+
+    <tr>
+      <th align = "left">Street Address:</th><td><INPUT TYPE="text" NAME="Street Address" SIZE =
+        "40"></td></th>
+    </tr>
+
+    <tr>
+      <th align = "left">City:</th><td><INPUT TYPE="text" NAME="City" SIZE = "40"></td>
+    </tr>
+
+    <tr>
+      <th align = "left">State:</th><td><INPUT TYPE="text" NAME="State" SIZE = "40"></td>
+    </tr>
+
+    <tr>
+      <th align = "left">Zip Code:</th><td><INPUT TYPE="text" NAME="Zip" SIZE = "40"></td>
+    </tr>
+
+    <tr>
+      <th align = "left">Choose Magazine:</th><td>
+            <input type="checkbox" name="magazines"
+            value="Newsweek">Newsweek
+            <br />
+            <input type="checkbox" name="Magazines"
+            value="Time">Time
+            <br />
+            <input type="checkbox" name="Magazines"
+            value="Sports Illustrated">Sports Illustrated
+            <br />
+            <input type="checkbox" name="magazines"
+            value="Internet World">Internet World
+            <br />
+
+    <tr>
+    	<th align = "left">Method of Payment:</th>
+    			<td><input type="radio" name="Payment Type" value="Bill Me Later"
+              checked>Check<br/>
+    			<input type="radio" name="Payment Type" value="Credit Card">Credit Card
+    				<select name="Card Type" size="1">
+              <option selected>Card Type:</option>
+              <option>Visa</option>
+              <option>Mastercard</option>
+    					<option>American Express</option>
+              <option>Discover</option>
+              </select>
+    </tr>
+
+    <tr>
+      <th align = "left">Credit Card Number:</th><td><INPUT TYPE="text" NAME="Credit Card Number"
+          SIZE = "40"></td>
+    </tr>
+
+    <tr>
+      <th align = "left">Expiration:</th><td><INPUT TYPE = "test" NAME = "Credit Card Expiration"
+          SIZE = "40"></td>
+    </tr>
+
+    <tr>
+      <th align = "left">Security Code: </th><td><INPUT TYPE = "test" NAME = "Security Code"
+          SIZE = "40"></td>
+    </tr>
+
+</table>
+<!------Submit----->
+  <br/>
+		<input type="submit">Complete Order<br/>
+  <br/>
+    <input type="reset">Reset Form<br/>
+
+  </form>
+
+</body>

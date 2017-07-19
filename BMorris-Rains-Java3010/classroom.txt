@@ -1,0 +1,6 @@
+Room Number: 123, Room Type: LAB}
+
+Room Number: 3213, Room Type: CLASSROOM}
+
+Room Number: 64356456, Room Type: LECTURE_HALL}
+

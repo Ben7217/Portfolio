@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<employees>
+  <employee>
+    <name>Connie Cobol</name>
+    <idnumber>098401</idnumber>
+    <wage>10.60</wage>
+    <hours>51.0</hours>
+    <overtime>11.0</overtime>
+    <gross>598.90</gross>
+    <position>Cook</position>
+    <hourlystatus>Full Time</hourlystatus>
+    <directdeposit>Yes</directdeposit>
+    <lengthofemployment>1.5 years</lengthofemployment>
+    <comments>Great Employee!</comments>
+  </employee>
+  <employee>
+    <name>Mary Apl</name>
+    <idnumber>526488</idnumber>
+    <wage>9.75</wage>
+    <hours>42.5</hours>
+    <overtime>2.5</overtime>
+    <gross>426.56</gross>
+    <position>Host</position>
+    <hourlystatus>Full Time</hourlystatus>
+    <directdeposit>No</directdeposit>
+    <lengthofemployment>2 years</lengthofemployment>
+    <comments>Great hustle!</comments>
+  </employee>
+  <employee>
+    <name>Frank Fortran</name>
+    <idnumber>765349</idnumber>
+    <wage>10.50	</wage>
+    <hours>37.0</hours>
+    <overtime>0.0</overtime>
+    <gross>388.50</gross>
+    <position>Bartender</position>
+    <hourlystatus>Part Time</hourlystatus>
+    <directdeposit>Yes</directdeposit>
+    <lengthofemployment>10  months</lengthofemployment>
+    <comments>Lack of motivation.</comments>
+  </employee>
+  <employee>
+    <name>Jeff Ada</name>
+    <idnumber>034645	</idnumber>
+    <wage>12.25</wage>
+    <hours>45.0</hours>
+    <overtime>5.0</overtime>
+    <gross>581.88</gross>
+    <position>Assistant Manager</position>
+    <hourlystatus>Full Time</hourlystatus>
+    <directdeposit>Yes</directdeposit>
+    <lengthofemployment>2.5 years</lengthofemployment>
+    <comments>Great leader!</comments>
+  </employee>
+  <employee>
+    <name>Anton Pascal</name>
+    <idnumber>127615</idnumber>
+    <wage>8.35</wage>
+    <hours>0.0</hours>
+    <overtime>0.0</overtime>
+    <gross>0.00</gross>
+    <position>Dish Washer</position>
+    <hourlystatus>Part Time</hourlystatus>
+    <directdeposit>No</directdeposit>
+    <lengthofemployment>0 years</lengthofemployment>
+    <comments>New hire</comments>
+  </employee>
+
+</employees>

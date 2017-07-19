@@ -1,0 +1,4 @@
+Student: Name: Ben, Address: 2813 cable, Social Security Number: 123123123. Date of Birth: 11/10/87dateOfGraduation=8/1/18enrolledCourses=[test1,  test2,  test3,  test4]}currentGPA=4.0
+
+Student: Name: George C. , Address: New York , Social Security Number: 111111111. Date of Birth: 11/10/78dateOfGraduation=neverenrolledCourses=[testa,  testb,  testc]}currentGPA=2.5
+

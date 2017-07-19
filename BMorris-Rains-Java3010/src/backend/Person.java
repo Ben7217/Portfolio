@@ -53,7 +53,7 @@ public class Person implements IPerson {
 
     @Override
     public String toString() {
-        return "Person{" + "name=" + name + ", address=" + address + "socialSecurityNumber=" + socialSecurityNumber + "dateOfBirth=" + dateOfBirth + '}';
+        return  "Name: " + name + ", Address: " + address + ", Social Security Number: " + socialSecurityNumber + ". Date of Birth: " + dateOfBirth;
     }
 
     

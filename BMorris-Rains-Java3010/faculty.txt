@@ -1,0 +1,4 @@
+Name: Kramere, Address: Your house, Social Security Number: 4556789456. Date of Birth: Employee Status: Part Time, Salary: 40000.0, List Of Courses: [test 1,  test2,  test3]
+
+Name: test2, Address: 123 test ave, Social Security Number: 123123123. Date of Birth: Employee Status: Full Time, Salary: 45000.0, List Of Courses: [testing1,  testing2,  test3]
+

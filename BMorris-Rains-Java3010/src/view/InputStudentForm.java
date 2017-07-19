@@ -222,55 +222,51 @@ public class InputStudentForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
-  
+
         Student aStudent = new Student();
 
         String name = this.nameField.getText();
         String address = this.addressField.getText();
         String ssn = this.ssnField.getText();
         String dateOfBirth = this.dobField.getText();
-        double gpa = Double.parseDouble(gpaField.getText());
         String graduation = this.graduationField.getText();
         JTextArea iCourses = this.enrolledCourses;
+        //String gpa = this.gpaField.getText();
 
         try {
-            
-            aStudent.setName(name);
-                if (name.length() == 0) {
-                    throw new NoDataException("Missing name!");
-                }
-            
-            aStudent.setSocialSecurityNumber(ssn);    
-                if (ssn.length() != 9) {
-                    throw new InvalidDataException("SSN must be nine numbers long!");
-                } 
-                
-            aStudent.setSocialSecurityNumber(ssn);  
-                for (int i = 0; i < ssn.length(); i++) {
-                    if (Character.isLetter(ssn.charAt(i)))
-                        throw new InvalidDataException("Must be numbers only!");
-                }
-                
-            aStudent.setCurrentGPA(gpa); 
-                if (Double.toString(gpa).length() == 0) {
-                    throw new NoDataException("GPA is required!"); 
-                }
-        
-        
-       
 
-        
-         
+            double gpa = Double.valueOf(gpaField.getText());
+            aStudent.setCurrentGPA(gpa);
+            if (Double.toString(gpa).length() == 0) {
+                throw new NumberFormatException("GPA is required!");
+            }
+
+            aStudent.setName(name);
+            if (name.length() == 0) {
+                throw new NoDataException("Missing name!");
+            }
+
+            aStudent.setSocialSecurityNumber(ssn);
+            if (ssn.length() != 9) {
+                throw new InvalidDataException("SSN must be nine numbers long!");
+            }
+
+            aStudent.setSocialSecurityNumber(ssn);
+            for (int i = 0; i < ssn.length(); i++) {
+                if (Character.isLetter(ssn.charAt(i))) {
+                    throw new InvalidDataException("Must be numbers only!");
+                }
+            }
+
             aStudent.setAddress(address);
-         
+
             aStudent.setDateOfGraduation(graduation);
             aStudent.setDateOfBirth(dateOfBirth);
-            
 
             // convert the text area to an array list of student courses
             // assume the text area is a list of course ids separated by commas
             // and split the text on the comma
-            aStudent.setDateOfGraduation(graduation);
+            
             String listOfCourses = iCourses.getText();
             String[] listOfCourseIds = listOfCourses.split(",");
             for (String courseId : listOfCourseIds) {
@@ -278,19 +274,14 @@ public class InputStudentForm extends javax.swing.JFrame {
                 aStudent.getEnrolledCourses().add(acourse);
             }
 
-            
-                     
-        this.listOfStudents.add(aStudent);
-        
-         } catch (NoDataException | InvalidDataException error)
-        {
+            this.listOfStudents.add(aStudent);
+
+        } catch (NumberFormatException | NoDataException | InvalidDataException error) {
             errorBox errorBox = new errorBox(error.getMessage());
             errorBox.setVisible(true);
 
-        } 
-        
+        }
 
-        
 
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -313,8 +304,6 @@ public class InputStudentForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_clearButtonActionPerformed
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField addressField;

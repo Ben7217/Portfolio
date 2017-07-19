@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shrink an Image
+</title>
+<h1 align="center">Shrink an Image</h1></align>
+</head>
+<body>
+  <h2>Before Optimization</h2>
+<img src="solismockuporange.jpg" height="400" width="600">
+<br><br><hr>
+<h2>After Optimization</h2>
+<img src="optimized.jpg" height="400" width="600" usemap="#optimized.jpg" border="0">
+<hr>
+<p> I used ImageOptimizer.com to take it from 1.9mb to 425kb! </p>
+<map name="optimized.jpg">
+	<area shape="circle" coords="625,224,43" href="https://en.wikipedia.org/wiki/Solar_eclipse_of_May_29,_1919">
+	<area shape="rect" coords="433,302,977,632" href="https://en.wikipedia.org/wiki/Playing_card">
+</map>
+</body>
+
+</html>

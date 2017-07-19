@@ -12,6 +12,7 @@ import data.DataContainer;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -256,7 +257,7 @@ public class InputFacultyForm extends javax.swing.JFrame {
         aFaculty.setStatus(status);
         aFaculty.setSalary(salary);
         aFaculty.setSocialSecurityNumber(ssn);
-       // aFaculty.setListOfCourses(listOfCourses);
+        
         
         
         
